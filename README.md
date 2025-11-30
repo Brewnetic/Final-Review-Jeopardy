@@ -33,7 +33,7 @@ The 10 categories in this game correspond directly to the major topics covered i
 6. Exception Handling & Recovery
 7. File Input/Output Operations
 8. Recursion
-9. Testing with JUnit (Split from L17)
+9. Testing with JUnit
 10. Integration Trail Mix (Include all topics holistically)
 
 ## Additional Study Resources

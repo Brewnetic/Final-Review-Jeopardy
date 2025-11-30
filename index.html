@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS 122 Midterm Jeopardy Review</title>
+    <title>CS 122 Final Exam Jeopardy Review</title>
     <style>
+        /* CSS copied from Midterm-Review-Jeopardy-main.html */
         :root {
             --jeopardy-blue: #060ce9;
             --jeopardy-gold: #ffcc00;
@@ -76,10 +77,10 @@
 
         #game-board {
             display: grid;
-            grid-template-columns: repeat(9, 1fr);
+            grid-template-columns: repeat(10, 1fr); /* 10 columns for 10 categories */
             gap: 5px;
             margin: 15px auto;
-            max-width: 1600px;
+            max-width: 1800px;
         }
 
         .category, .clue {
@@ -212,7 +213,7 @@
 <body>
 
     <header>
-        <h1>CS 122: OBJECT-ORIENTED PROGRAMMING MIDTERM REVIEW</h1>
+        <h1>CS 122 FINAL EXAM REVIEW (LEC 10-17)</h1>
         <button id="rules-btn">Game Rules</button>
     </header>
 
@@ -253,7 +254,7 @@
                 <li>After the answer is revealed, the team responds.</li>
                 <li>If the response is correct, the team earns the point value and keeps control.</li>
                 <li>If the response is incorrect, the team loses the point value and control passes to the other team.</li>
-                <li>**Daily Doubles:** If a Daily Double is found, the team must wager an amount before seeing the question. A correct answer wins the wager, an incorrect answer loses it.</li>
+                <li>**Daily Doubles:** If a Daily Double is found, the team must wager an amount before seeing the question. A correct answer wins the wager, an incorrect answer loses it. (There are 3 Daily Doubles on this board).</li>
             </ul>
             <button id="close-rules-btn">Close</button>
         </div>
@@ -280,137 +281,156 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
+            /* Questions are strictly aligned to the Final Study Guide Sections */
             const gameData = [
-                // Category 1
+                // Category 1: 10. Collections Framework & ArrayList
                 {
-                    category: "Java Fundamentals",
+                    category: "L10: ArrayList",
                     questions: [
-                        { points: 100, answer: "A program is made up of one or more of these.", question: "What are classes?" },
-                        { points: 200, answer: "This type of error is caught by the compiler, for example a syntax error.", question: "What is a compile-time error?" },
-                        { points: 300, answer: "The machine that runs Java bytecode.", question: "What is the JVM (Java Virtual Machine)?" },
-                        { points: 400, answer: "This keyword marks a variable as a constant.", question: "What is `final`?" },
-                        { points: 500, answer: "Fill in the blank for the program's entry point: <br><code class='code-snippet'>public static void ______(String[] args)</code>", question: "What is `main`?" },
-                        { points: 600, answer: "The three main types of errors in programming.", question: "What are compile-time, run-time, and logical errors?" },
-                        { points: 700, answer: "In Java, all code must live inside this.", question: "What is a class?" },
-                        { points: 800, answer: "This type of comment starts with `/*` and ends with `*/`.", question: "What is a multi-line comment?" },
-                        { points: 900, answer: "In `public static void main`, this keyword means the method belongs to the class, not an object.", question: "What is `static`?" }
+                        { points: 100, answer: "The operation that automatically turns a primitive `int` into an `Integer` object for storage in a Collection.", question: "What is **autoboxing**?" },
+                        { points: 200, answer: "The time required to retrieve an element by index (`.get(i)`) for an `ArrayList`.", question: "What is **O(1)**?" },
+                        { points: 300, answer: "The reason **ArrayList** is called a 'resizable array'.", question: "What is it creates a **larger internal array and copies everything over**?" },
+                        { points: 400, answer: "The amount of time required to shift elements when calling `.remove(500)` on an `ArrayList` of 1000 items.", question: "What is **O(n)**?" },
+                        { points: 500, answer: "The specific error that generics (`<String>`) prevent.", question: "What is trying to add an **incorrect type** (e.g., Integer to `ArrayList<String>`)?" },
+                        { points: 600, answer: "The cleaner and less error-prone way to iterate over any Collection.", question: "What is the **for-each loop**?" },
+                        { points: 700, answer: "The final output: <br><code class='code-snippet'>ArrayList<Integer> nums = new ArrayList<>();<br>nums.add(1); nums.add(2);<br>System.out.println(nums);</code>", question: "What is **[1, 2]**?" },
+                        { points: 800, answer: "The name for Java's toolkit of reusable, optimized data structures.", question: "What is the **Collections Framework**?" },
+                        { points: 900, answer: "The method that allows an `ArrayList` to display all its elements when printed directly to the console.", question: "What is **`.toString()`**?" }
                     ]
                 },
-                // Category 2
+                // Category 2: 11. LinkedList and Performance Analysis
                 {
-                    category: "Data & Input",
+                    category: "L11: LinkedList",
                     questions: [
-                        { points: 100, answer: "Java's 8 of these include `int`, `double`, and `boolean`.", question: "What are primitive data types?" },
-                        { points: 200, answer: "The data type for a single character, enclosed in single quotes.", question: "What is a `char`?" },
-                        { points: 300, answer: "This class from `java.util` is used to get user input.", question: "What is the `Scanner` class?" },
-                        { points: 400, answer: "The naming convention for variables like `studentName`.", question: "What is camelCase?" },
-                        { points: 500, answer: "The object representation of a primitive type, like `Integer` for `int`.", question: "What is a Wrapper Class?" },
-                        { points: 600, answer: "This bug occurs when mixing `nextInt()` and `nextLine()` without consuming the leftover newline character.", question: "What is the scanner newline issue?" },
-                        { points: 700, answer: "A variable of this type can only hold the values `true` or `false`.", question: "What is a `boolean`?" },
-                        { points: 800, answer: "This automatically imported package contains `String`, `System`, and Wrapper Classes.", question: "What is `java.lang`?" },
-                        { points: 900, answer: "The default value for an uninitialized `int` instance variable.", question: "What is 0?" }
+                        { points: 100, answer: "The structure that links elements, containing both data and links to the next and previous elements.", question: "What is a **doubly-linked list**?" },
+                        { points: 200, answer: "The list type that is faster (O(1)) for inserting elements at the beginning.", question: "What is **LinkedList**?" },
+                        { points: 300, answer: "The amount of time required to access an element by index (`.get(i)`) on a `LinkedList`.", question: "What is **O(n)**?" },
+                        { points: 400, answer: "The list type to choose when you frequently access elements by index.", question: "What is **ArrayList**?" },
+                        { points: 500, answer: "The result of using an index-based loop (`.get(i)`) on a large `LinkedList`.", question: "What is the **O(n²) complexity problem**?" },
+                        { points: 600, answer: "The object used by the for-each loop to ensure sequential traversal of a `LinkedList` is $O(n)$.", question: "What is an **Iterator**?" },
+                        { points: 700, answer: "The `LinkedList` method used to remove and return the element from the end of the list.", question: "What is **`.removeLast()`**?" },
+                        { points: 800, answer: "The primary **trade-off** where `LinkedList` excels.", question: "What is **frequent adding/removing in the middle**?" },
+                        { points: 900, answer: "The final output: <br><code class='code-snippet'>LinkedList<String> list = new LinkedList<>();<br>list.add('C'); list.add('A'); list.addFirst('B');<br>System.out.println(list.getFirst());</code>", question: "What is **B**?" }
                     ]
                 },
-                // Category 3
+                // Category 3: 12. Sets and Queues
                 {
-                    category: "Operators & Casting",
+                    category: "L12: Sets & Queues",
                     questions: [
-                        { points: 100, answer: "This operator, `%`, gives the remainder of a division.", question: "What is modulo?" },
-                        { points: 200, answer: "The result of `9 / 2` in integer division.", question: "What is 4?" },
-                        { points: 300, answer: "The shorthand for `x = x + 1;`.", question: "What is `x++` or `++x`?" },
-                        { points: 400, answer: "The output of: <br><code class='code-snippet'>System.out.println(\"Val: \" + 5 + 3);</code>", question: "What is `Val: 53`?" },
-                        { points: 500, answer: "Explicitly converting a value, such as `(int) 9.9`.", question: "What is type casting?" },
-                        { points: 600, answer: "The output of: <br><code class='code-snippet'>System.out.println(\"Val: \" + (5 + 3));</code>", question: "What is `Val: 8`?" },
-                        { points: 700, answer: "The value of `z` after: <br><code class='code-snippet'>int x = 5; int y = 2;\ndouble z = (double)x / y;</code>", question: "What is 2.5?" },
-                        { points: 800, answer: "This phenomenon occurs when an `int` exceeds its maximum value.", question: "What is integer overflow?", dailyDouble: true },
-                        { points: 900, answer: "The precise output of: `System.out.println(5.0 / 2.0 + 2);`.", question: "What is 4.5?" }
+                        { points: 100, answer: "The primary guarantee of the **Set** interface.", question: "What is **uniqueness** (or no duplicates)?" },
+                        { points: 200, answer: "The required time to check if an item exists in a `HashSet`.", question: "What is **O(1) average**?" },
+                        { points: 300, answer: "The ordering principle of a **Queue**.", question: "What is **FIFO** (First-In-First-Out)?" },
+                        { points: 400, answer: "The consequence of calling `.add()` with a duplicate element on a `HashSet`.", question: "What is **it is silently ignored**?" },
+                        { points: 500, answer: "The specific `Set` implementation that is **fast** but provides **no guaranteed order**.", question: "What is **HashSet**?" },
+                        { points: 600, answer: "The `Queue` method that **throws an exception** if the queue is full.", question: "What is **`.add(object)`**?" },
+                        { points: 700, answer: "The method on `ArrayBlockingQueue` that causes a thread to **pause** if the queue is full.", question: "What is **`.put()`**?" },
+                        { points: 800, answer: "The specific, thread-safe queue that blocks if full or empty.", question: "What is **`ArrayBlockingQueue`**?" },
+                        { points: 900, answer: "The final output: <br><code class='code-snippet'>Queue<String> orders = new LinkedList<>();<br>orders.add('A'); orders.add('B');<br>orders.remove();<br>System.out.println(orders.poll());</code>", question: "What is **B**?" }
                     ]
                 },
-                // Category 4
+                // Category 4: 13. Maps as Lookup Tables
                 {
-                    category: "String Mania",
+                    category: "L13: Maps",
                     questions: [
-                        { points: 100, answer: "This method returns the number of characters in a String.", question: "What is `.length()`?" },
-                        { points: 200, answer: "The correct method to compare the contents of two Strings.", question: "What is `.equals()`?" },
-                        { points: 300, answer: "The principle that Strings cannot be changed once created.", question: "What is immutability?" },
-                        { points: 400, answer: "The character at index 2 in the string `\"Java\"`.", question: "What is 'v'?" },
-                        { points: 500, answer: "Fill in the blank for formatted printing: <br><code class='code-snippet'>System.out.printf(\"%.2__\", 19.99);</code>", question: "What is `f`?" },
-                        { points: 600, answer: "The output of: `\"Pace\".substring(1, 3)`.", question: "What is `\"ac\"`?" },
-                        { points: 700, answer: "This is why `name = name.toUpperCase();` is necessary to change the `name` variable.", question: "What is because Strings are immutable?" },
-                        { points: 800, answer: "The output of: <br><code class='code-snippet'>String s = \"CS122\";\nSystem.out.println(s.indexOf(\"2\"));</code>", question: "What is 3?" },
-                        { points: 900, answer: "The output of: <br><code class='code-snippet'>String s1 = \"Hi\";\nString s2 = new String(\"Hi\");\nSystem.out.println(s1 == s2);</code>", question: "What is `false`?" }
+                        { points: 100, answer: "The collection structure that stores information as **key-value pairs**.", question: "What is a **Map**?" },
+                        { points: 200, answer: "The required time for retrieving a value by key in a `HashMap`.", question: "What is **O(1) average**?" },
+                        { points: 300, answer: "The consequence of calling `.put()` with a key that already exists.", question: "What is the **old value is overwritten**?" },
+                        { points: 400, answer: "The method used to retrieve a **Set** of all the unique keys in a `HashMap`.", question: "What is **`.keySet()`**?" },
+                        { points: 500, answer: "The most efficient way to iterate through both the keys and values of a `HashMap`.", question: "What is **iterating over the `entrySet()`**?" },
+                        { points: 600, answer: "The real-world technique where a Map is used to avoid repeated slow network calls.", question: "What is **caching**?" },
+                        { points: 700, answer: "The requirement for any custom object used as a **key** in a `HashMap`.", question: "What is it must have a proper **`hashCode()`** method?" },
+                        { points: 800, answer: "The final output: <br><code class='code-snippet'>HashMap<String, Integer> map = new HashMap<>();<br>map.put('X', 10);<br>map.remove('Y');<br>System.out.println(map.size());</code>", question: "What is **1**?" },
+                        { points: 900, answer: "The final output: <br><code class='code-snippet'>HashMap<String, String> data = new HashMap<>();<br>data.put('A', 'X');<br>data.put('A', 'Y');<br>System.out.println(data.get('A'));</code>", question: "What is **Y**?" }
                     ]
                 },
-                // Category 5
+                // Category 5: 14. Binary Search: Efficient Searching
                 {
-                    category: "Control Flow",
+                    category: "L14: Binary Search",
                     questions: [
-                        { points: 100, answer: "This statement is used to make a decision.", question: "What is an `if` statement?" },
-                        { points: 200, answer: "The logical `AND` operator.", question: "What is `&&`?" },
-                        { points: 300, answer: "This type of loop is ideal for a known number of iterations.", question: "What is a `for` loop?" },
-                        { points: 400, answer: "This keyword exits a loop or a switch case.", question: "What is `break`?" },
-                        { points: 500, answer: "The output of this loop: <br><code class='code-snippet'>for (int i=1; i<=3; i++) {\n  System.out.print(i);\n}</code>", question: "What is `123`?" },
-                        { points: 600, answer: "The keyword in a `switch` that handles unmatched cases.", question: "What is `default`?" },
-                        { points: 700, answer: "A loop that continues as long as a condition is true.", question: "What is a `while` loop?" },
-                        { points: 800, answer: "This loop is guaranteed to run at least once.", question: "What is a `do-while` loop?" },
-                        { points: 900, answer: "This enhanced loop iterates over elements of an array or collection without using an index.", question: "What is a `foreach` loop?" }
+                        { points: 100, answer: "The **critical prerequisite** for using binary search.", question: "What is the **array/list must be sorted**?" },
+                        { points: 200, answer: "The search algorithm that is $O(n)$.", question: "What is **Linear Search**?" },
+                        { points: 300, answer: "The number of comparisons required for a binary search on $1,000,000$ elements.", question: "What are **approximately 20** comparisons?" },
+                        { points: 400, answer: "The action taken if the target value is **less than** the value at the `middle` index.", question: "What is **set `right = middle - 1`**?" },
+                        { points: 500, answer: "The amount of time required for the entire process: sort + binary search + binary search.", question: "What is **O(n log n)**?" },
+                        { points: 600, answer: "The reason to use $left + (right - left) / 2$ to calculate the middle index.", question: "What is to **avoid integer overflow** on very large numbers?" },
+                        { points: 700, answer: "The value the binary search function must return if the loop condition `while (left <= right)` becomes false.", question: "What is **-1** (or not found)?" },
+                        { points: 800, answer: "The number of elements the search space is reduced by in each step.", question: "What is **half** (or 50%)?" },
+                        { points: 900, answer: "The value of `middle` in a binary search on an array of length 11, with `left = 0` and `right = 10`.", question: "What is **5**?" }
                     ]
                 },
-                // Category 6
+                // Category 6: 15. Exception Handling & Recovery
                 {
-                    category: "Arrays",
+                    category: "L15: Exceptions",
                     questions: [
-                        { points: 100, answer: "The index of the first element in an array.", question: "What is 0?" },
-                        { points: 200, answer: "This property gives the number of elements in an array.", question: "What is `.length`?" },
-                        { points: 300, answer: "The error thrown when you try to access an index that doesn't exist.", question: "What is an `ArrayIndexOutOfBoundsException`?" },
-                        { points: 400, answer: "The statement to declare an integer array named `scores` that can hold 10 values.", question: "What is `int[] scores = new int[10];`?" },
-                        { points: 500, answer: "Fill in the blanks to access the center of a 3x3 `board` array: <br><code class='code-snippet'>board[__][__];</code>", question: "What is `[1][1]`?" },
-                        { points: 600, answer: "The method used to get a printable string representation of an array's contents.", question: "What is `Arrays.toString()`?", dailyDouble: true },
-                        { points: 700, answer: "The value of `nums[2]` after this code: <br><code class='code-snippet'>int[] nums = {10, 20, 30, 40};\nnums[2] = 50;</code>", question: "What is 50?" },
-                        { points: 800, answer: "A 2D array is best for representing this type of data structure.", question: "What is a grid or table?" },
-                        { points: 900, answer: "How you declare and initialize a String array named `days` with three values: \"Mon\", \"Wed\", \"Fri\".", question: "What is `String[] days = {\"Mon\", \"Wed\", \"Fri\"};`?" }
+                        { points: 100, answer: "The keyword used to wrap code that might throw an exception.", question: "What is **`try`**?" },
+                        { points: 200, answer: "The block of code that **always** executes, useful for closing files.", question: "What is **`finally`**?" },
+                        { points: 300, answer: "The keyword that delegates exception handling responsibility to the calling method.", question: "What is **`throws`**?" },
+                        { points: 400, answer: "The type of exception (`IOException`) that the compiler forces you to handle.", question: "What is a **checked exception**?" },
+                        { points: 500, answer: "The type of exception (`NullPointerException`) caused by programming errors.", question: "What is an **unchecked exception**?" },
+                        { points: 600, answer: "The exception object method used to print the full history of method calls for debugging.", question: "What is **`.printStackTrace()`**?" },
+                        { points: 700, answer: "The rule for ordering `catch` blocks when handling exceptions.", question: "What is **specific exceptions must come before general ones**?" },
+                        { points: 800, answer: "The primary difference between an Exception and an Error in Java.", question: "What is **you handle exceptions but don't handle errors**?" },
+                        { points: 900, answer: "The final output: <br><code class='code-snippet'>try {<br>  // No exception thrown<br>} finally {<br>  System.out.println('Cleaned');<br>}</code>", question: "What is **Cleaned**?" }
                     ]
                 },
+                // Category 7: 16. File Input/Output Operations
                 {
-                    category: "Methods & Scope",
+                    category: "L16: File I/O",
                     questions: [
-                        { points: 100, answer: "A method declared with this return type performs an action but does not return a value.", question: "What is `void`?" },
-                        { points: 200, answer: "The values passed into a method when it is called.", question: "What are arguments?" },
-                        { points: 300, answer: "The variables in a method's definition that accept values.", question: "What are parameters?" },
-                        { points: 400, answer: "This keyword is used inside a method to send a value back to the caller.", question: "What is `return`?" },
-                        { points: 500, answer: "This term describes having multiple methods with the same name but different parameter lists.", question: "What is method overloading?" },
-                        { points: 600, answer: "When a primitive type like `int` is passed to a method, the method receives a copy of this.", question: "What is the value (pass-by-value)?" },
-                        { points: 700, answer: "The concept that a variable is only accessible within the block of code where it is defined.", question: "What is variable scope?" },
-                        { points: 800, answer: "A variable declared inside a `for` loop has this kind of scope.", question: "What is local or loop scope?" },
-                        { points: 900, answer: "True or False: A method in Java can change the value of an original primitive variable that was passed to it as an argument.", question: "What is `false`?" }
+                        { points: 100, answer: "The core class that represents a file or directory path.", question: "What is the **`File`** class?" },
+                        { points: 200, answer: "The method that must be called on a file writer to ensure data is written to the disk.", question: "What is **`.close()`**?" },
+                        { points: 300, answer: "The most efficient class for reading a text file line by line.", question: "What is **`BufferedReader`**?" },
+                        { points: 400, answer: "The value returned by `BufferedReader`'s `.readLine()` when it reaches the end of the file.", question: "What is **`null`**?" },
+                        { points: 500, answer: "The parameter used in the `FileWriter` constructor to **append** text instead of overwriting.", question: "What is **`true`** (as the second argument to the constructor)?" },
+                        { points: 600, answer: "The file path type that starts from the root of the file system.", question: "What is an **absolute path**?" },
+                        { points: 700, answer: "The class that wraps a `FileWriter` to make writing large amounts of data faster.", question: "What is **`BufferedWriter`**?" },
+                        { points: 800, answer: "The `File` method that creates a directory.", question: "What is **`.mkdir()`**?" },
+                        { points: 900, answer: "The specific checked exception thrown if a file cannot be found.", question: "What is **`FileNotFoundException`**?" }
                     ]
                 },
+                // Category 8: 17. Recursion
                 {
-                    category: "OOP Pillars",
+                    category: "L17: Recursion",
                     questions: [
-                        { points: 100, answer: "A blueprint or template for creating objects.", question: "What is a Class?" },
-                        { points: 200, answer: "An instance of a class.", question: "What is an Object?" },
-                        { points: 300, answer: "A special method that shares the class name and initializes an object.", question: "What is a Constructor?" },
-                        { points: 400, answer: "Bundling data and methods together, often hiding data with the `private` keyword.", question: "What is Encapsulation?" },
-                        { points: 500, answer: "The `is-a` relationship, where a subclass inherits from a superclass using `extends`.", question: "What is Inheritance?" },
-                        { points: 600, answer: "Hiding complex implementation details and showing only essential features.", question: "What is Abstraction?" },
-                        { points: 700, answer: "When a subclass provides its own implementation for a method from its parent class.", question: "What is method overriding?" },
-                        { points: 800, answer: "The 'many forms' pillar of OOP, including both method overriding and overloading.", question: "What is Polymorphism?" },
-                        { points: 900, answer: "Fill in the blank: <br><code class='code-snippet'>public class Car ______ Vehicle { ... }</code>", question: "What is `extends`?" }
+                        { points: 100, answer: "The condition that stops the chain of recursive calls.", question: "What is the **base case**?" },
+                        { points: 200, answer: "The two parts required for every recursive method.", question: "What are the **base case** and the **recursive case**?" },
+                        { points: 300, answer: "The recursive step for the **Factorial** function for $n>1$.", question: "What is **`return n * factorial(n - 1)`**?" },
+                        { points: 400, answer: "The final output of the Factorial recursive function when given an input of 5.", question: "What is **120**?" },
+                        { points: 500, answer: "The problem that results from a missing or faulty base case.", question: "What is **infinite recursion** (or Stack Overflow)?" },
+                        { points: 600, answer: "The type of time complexity for the naive recursive **Fibonacci** function.", question: "What is **exponential** (or $O(2^n)$)?" },
+                        { points: 700, answer: "The alternative approach, usually more performant, that should be considered for any recursive problem.", question: "What is **iteration** (or using loops)?" },
+                        { points: 800, answer: "The final output: <br><code class='code-snippet'>public static int bad(int n) {<br>  return bad(n - 1);<br>}</code>", question: "What is a **crash** (or Stack Overflow)?" },
+                        { points: 900, answer: "The final output of the Fibonacci recursive function when given input 3.", question: "What is **2**?" }
                     ]
                 },
+                // Category 9: Testing with JUnit (Split from L17)
                 {
-                    category: "Data Organization",
+                    category: "L17: JUnit Testing",
                     questions: [
-                        { points: 100, answer: "The acronym for a Plain Old Java Object.", question: "What is a POJO?" },
-                        { points: 200, answer: "Public methods used to access private fields, like `getName()`.", question: "What are getters?" },
-                        { points: 300, answer: "Public methods used to modify private fields, like `setName()`.", question: "What are setters?" },
-                        { points: 400, answer: "A way to organize related classes into a namespace, like `java.util`.", question: "What is a package?" },
-                        { points: 500, answer: "The statement used at the top of a file to use a class from another package.", question: "What is `import`?" },
-                        { points: 600, answer: "These classes, like `Integer` and `Double`, provide object representations for primitive types.", question: "What are Wrapper Classes?" },
-                        { points: 700, answer: "The main reason Wrapper classes are necessary for data structures like `ArrayList`.", question: "What is because collections can only hold objects, not primitives?" },
-                        { points: 800, answer: "The standard naming convention for packages, based on a company's web address.", question: "What is the reverse domain name convention?" },
-                        { points: 900, answer: "This package is automatically imported into every Java file.", question: "What is `java.lang`?", dailyDouble: true }
+                        { points: 100, answer: "The automated testing framework used in Java.", question: "What is **JUnit 5**?" },
+                        { points: 200, answer: "The annotation that marks a method as an official test method.", question: "What is **`@Test`**?" },
+                        { points: 300, answer: "The assertion method used to verify that two values are equal.", question: "What is **`assertEquals()`**?" },
+                        { points: 400, answer: "The type of input used to test boundaries, such as 0 or negative numbers.", question: "What are **edge cases**?" },
+                        { points: 500, answer: "The assertion method used to verify that a specific exception is thrown.", question: "What is **`assertThrows()`**?" },
+                        { points: 600, answer: "The convention for naming a JUnit test method.", question: "What is **`methodUnderTest_expectedBehavior_conditions`**?" },
+                        { points: 700, answer: "The advantage of automated testing over manual testing.", question: "What is **running hundreds of tests in seconds** (or systematic verification)?" },
+                        { points: 800, answer: "The method used to verify that a file was successfully created in a file I/O test.", question: "What is **`assertTrue(file.exists())`**?" },
+                        { points: 900, answer: "The final output: <br><code class='code-snippet'>@Test public void test() {<br>  assertFalse(5 < 0);<br>}</code>", question: "What is **(the test) passes**?" }
+                    ]
+                },
+                // Category 10: Integration Trail Mix
+                {
+                    category: "10. Integration Trail Mix",
+                    questions: [
+                        { points: 100, answer: "The data structure that efficiently removes duplicates from an `ArrayList`.", question: "What is **HashSet**?" },
+                        { points: 200, answer: "The three holistic concepts assessed in the final exam's **Programming Challenge** section.", question: "What are **reading files into collections**, **handling exceptions**, and **writing recursive algorithms**?" },
+                        { points: 300, answer: "The list type and operation that results in $O(n^2)$ search performance.", question: "What is **LinkedList with index-based `get(i)`**?" },
+                        { points: 400, answer: "The correct search approach for finding a name in a **sorted `ArrayList`** of 1,000,000 strings.", question: "What is **Binary Search**?" },
+                        { points: 500, answer: "The purpose of placing a file `.close()` call inside a **`finally`** block during file writing.", question: "What is to **ensure the resource is released** (or closed) **even if an exception occurs**?" },
+                        { points: 600, answer: "The specific exception that a **binary search** on an array might throw if the search boundaries are improperly calculated.", question: "What is **`ArrayIndexOutOfBoundsException`**?" },
+                        { points: 700, answer: "The best stream class to use for efficiently reading a text file line-by-line into a **HashMap**.", question: "What is **`BufferedReader`**?" },
+                        { points: 800, answer: "The assertion method needed to test that `factorial(0)` returns the correct result.", question: "What is **`assertEquals()`**?" },
+                        { points: 900, answer: "The data structure required to store unique student IDs (Integer) mapped to their names (String).", question: "What is **HashMap<Integer, String>**?" }
                     ]
                 }
             ];
@@ -455,21 +475,35 @@
 
             function setupBoard() {
                 gameBoard.innerHTML = '';
+                // Add categories (first row)
                 gameData.forEach((cat) => {
                     const categoryDiv = document.createElement('div');
                     categoryDiv.classList.add('category');
                     categoryDiv.textContent = cat.category;
                     gameBoard.appendChild(categoryDiv);
                 });
+                // Add clues (9 rows below categories)
                 for (let i = 0; i < 9; i++) {
                     gameData.forEach((cat, catIndex) => {
                         const clue = cat.questions[i];
                         const clueDiv = document.createElement('div');
                         clueDiv.classList.add('clue');
-                        clueDiv.textContent = `$${clue.points}`;
+                        // Use original points: 100, 200, 300, 400, 500, 600, 700, 800, 900
+                        const points = (i + 1) * 100; 
+                        clueDiv.textContent = `$${points}`;
                         clueDiv.dataset.catIndex = catIndex;
                         clueDiv.dataset.clueIndex = i;
-                        clueDiv.dataset.points = clue.points;
+                        clueDiv.dataset.points = points;
+                        
+                        // Manually assign 3 Daily Doubles for the full 10-category board:
+                        if (catIndex === 3 && points === 800) { clue.dailyDouble = true; } // L13: Maps $800
+                        if (catIndex === 5 && points === 900) { clue.dailyDouble = true; } // L15: Exceptions $900
+                        if (catIndex === 7 && points === 400) { clue.dailyDouble = true; } // L17: Recursion $400
+                        
+                        if (clue.dailyDouble) {
+                            clueDiv.dataset.dailyDouble = 'true';
+                        }
+
                         gameBoard.appendChild(clueDiv);
                     });
                 }
@@ -511,6 +545,7 @@
                     const questionData = gameData[catIndex].questions[clueIndex];
 
                     if (questionData.dailyDouble) {
+                        // Max wager is the team's current score OR $900 (the highest default value on the board), whichever is greater.
                         const maxWager = Math.max(teams[activeTeamIndex].score, 900);
                         maxWagerText.textContent = `Max wager: $${maxWager}`;
                         wagerInput.value = '';

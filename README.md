@@ -1,55 +1,46 @@
-# CS 122: [Midterm Review Jeopardy Game](https://brewnetic.github.io/midterm-review-jeopardy/)
+# CS 122: [Final Exam Review Jeopardy Game](Final-Review-Jeopardy.html)
 
 Hello everyone,
 
-Welcome to the interactive Jeopardy game for our CS 122 midterm review! This application was created to provide a fun and engaging way for us to prepare together during our review session.
+Welcome to the comprehensive, interactive Jeopardy game designed to prepare you for the CS 122 Final Exam! This game covers Lectures 10 through 17 and emphasizes the **application of concepts, trade-offs in data structures, and integrated problem-solving** needed for both the multiple-choice and programming challenge sections of the final assessment.
 
-The questions and categories in this game are based directly on the official **[CS 122 Midterm Study Guide](https://github.com/Brewnetic/Midterm-Study-Guide)**. Use this game as a way to test your conceptual knowledge and identify any topics you may want to review further.
+Use this game as a way to test your conceptual knowledge and identify any topics (especially recursion, file I/O, and collections) you may want to review further.
 
 ## How We'll Play in Class
 
-We will play this game together during our scheduled midterm review session.
+We will play this game together during our scheduled final review session.
 
 * **Teams:** The class will be divided into two teams.
-* **Gameplay:** The active team will choose a category and a point value. I will read the "answer," and the first team to buzz in must respond in the form of a question.
+* **Gameplay:** The active team will choose a category and a point value. The host (Prof. Sarah L) will read the "answer," and the first team to buzz in must respond in the form of a question.
 * **Scoring:** Correct responses earn points, while incorrect responses deduct points. The team that answers correctly gains control of the board for the next question.
 
 **Example of Gameplay:**
 
-> 1.  **A team chooses:** "History for $200".
-> 2.  **The host reads the clue:** "He was the first President of the United States."
-> 3.  **The team buzzes in and responds:** "Who is George Washington?"
-> 4.  **Result:** That is correct! The team earns 200 points and gets to choose the next question.
+> 1.  **A team chooses:** "15. Exception Handling for $400".
+> 2.  **The host reads the clue:** "The type of exception, such as `IOException`, that the compiler forces you to handle."
+> 3.  **The team buzzes in and responds:** "What is a **checked exception**?"
+> 4.  **Result:** That is correct! The team earns 400 points and gets to choose the next question.
 
 ## Game Categories
 
-The 10 categories in this game correspond directly to the 10 sections in the Midterm Study Guide:
+The 10 categories in this game correspond directly to the major topics covered in the **[CS 122 Final Exam Study Guide](https://github.com/Brewnetic/Final-Study-Guide)** (Lectures 10-17):
 
-1.  Introduction to Java
-2.  Variables, Data Types, and Input
-3.  Operators and Type Casting
-4.  Strings and Core Methods
-5.  Control Flow
-6.  Arrays
-7.  Methods
-8.  Introduction to Object-Oriented Programming (OOP)
-9.  The Four Pillars of OOP
-10. Data & Organization
-
-## How to Use This for Your Own Study
-
-You can play the [game](https://github.com/Brewnetic/Midterm-Review-Jeopardy) anytime by clicking the link. You can also use it offline by following these steps:
-
-1.  Download the `index.html` file from this repository.
-2.  Open the file in any modern web browser (like Chrome, Firefox, or Safari).
-3.  Play through the questions to test your knowledge.
+1.  10. Collections Framework & ArrayList
+2.  11. LinkedList and Performance Analysis
+3.  12. Sets and Queues
+4.  13. Maps as Lookup Tables
+5.  14. Binary Search: Efficient Searching
+6.  15. Exception Handling & Recovery
+7.  16. File Input/Output Operations
+8.  17. Recursion
+9.  Testing with JUnit (Split from L17)
+10. Integration Trail Mix (Covers all topics holistically)
 
 ## Additional Study Resources
 
 This game is just one part of your review. Please make sure to also:
 
-* Thoroughly review the official **[CS 122 Midterm Study Guide Repo](https://github.com/Brewnetic/Midterm-Study-Guide)**.
-
+* Thoroughly review the official **[CS 122 Final Exam Study Guide](https://github.com/Brewnetic/Final-Study-Guide)**.
 
 Good luck with your studies!
 

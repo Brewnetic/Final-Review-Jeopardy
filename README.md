@@ -25,16 +25,16 @@ We will play this game together during our scheduled final review session.
 
 The 10 categories in this game correspond directly to the major topics covered in the **[CS 122 Final Exam Study Guide](https://github.com/Brewnetic/Final-Study-Guide)** (Lectures 10-17):
 
-1.  10. Collections Framework & ArrayList
-2.  11. LinkedList and Performance Analysis
-3.  12. Sets and Queues
-4.  13. Maps as Lookup Tables
-5.  14. Binary Search: Efficient Searching
-6.  15. Exception Handling & Recovery
-7.  16. File Input/Output Operations
-8.  17. Recursion
-9.  Testing with JUnit (Split from L17)
-10. Integration Trail Mix (Covers all topics holistically)
+1. Collections Framework & ArrayList
+2. LinkedList and Performance Analysis
+3. Sets and Queues
+4. Maps as Lookup Tables
+5. Binary Search: Efficient Searching
+6. Exception Handling & Recovery
+7. File Input/Output Operations
+8. Recursion
+9. Testing with JUnit (Split from L17)
+10. Integration Trail Mix (Include all topics holistically)
 
 ## Additional Study Resources
 

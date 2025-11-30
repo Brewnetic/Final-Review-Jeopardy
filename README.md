@@ -16,7 +16,7 @@ We will play this game together during our scheduled final review session.
 
 **Example of Gameplay:**
 
-> 1.  **A team chooses:** "15. Exception Handling for $400".
+> 1.  **A team chooses:** "Exception Handling for $400".
 > 2.  **The host reads the clue:** "The type of exception, such as `IOException`, that the compiler forces you to handle."
 > 3.  **The team buzzes in and responds:** "What is a **checked exception**?"
 > 4.  **Result:** That is correct! The team earns 400 points and gets to choose the next question.

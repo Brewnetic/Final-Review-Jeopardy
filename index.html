@@ -283,9 +283,9 @@
 
             /* Questions are strictly aligned to the Final Study Guide Sections */
             const gameData = [
-                // Category 1: 10. Collections Framework & ArrayList
+                // Category 1: Collections Framework & ArrayList
                 {
-                    category: "L10: ArrayList",
+                    category: "ArrayList",
                     questions: [
                         { points: 100, answer: "The operation that automatically turns a primitive `int` into an `Integer` object for storage in a Collection.", question: "What is **autoboxing**?" },
                         { points: 200, answer: "The time required to retrieve an element by index (`.get(i)`) for an `ArrayList`.", question: "What is **O(1)**?" },
@@ -298,9 +298,9 @@
                         { points: 900, answer: "The method that allows an `ArrayList` to display all its elements when printed directly to the console.", question: "What is **`.toString()`**?" }
                     ]
                 },
-                // Category 2: 11. LinkedList and Performance Analysis
+                // Category 2: LinkedList and Performance Analysis
                 {
-                    category: "L11: LinkedList",
+                    category: "LinkedList",
                     questions: [
                         { points: 100, answer: "The structure that links elements, containing both data and links to the next and previous elements.", question: "What is a **doubly-linked list**?" },
                         { points: 200, answer: "The list type that is faster (O(1)) for inserting elements at the beginning.", question: "What is **LinkedList**?" },
@@ -315,7 +315,7 @@
                 },
                 // Category 3: 12. Sets and Queues
                 {
-                    category: "L12: Sets & Queues",
+                    category: "Sets & Queues",
                     questions: [
                         { points: 100, answer: "The primary guarantee of the **Set** interface.", question: "What is **uniqueness** (or no duplicates)?" },
                         { points: 200, answer: "The required time to check if an item exists in a `HashSet`.", question: "What is **O(1) average**?" },
@@ -328,9 +328,9 @@
                         { points: 900, answer: "The final output: <br><code class='code-snippet'>Queue<String> orders = new LinkedList<>();<br>orders.add('A'); orders.add('B');<br>orders.remove();<br>System.out.println(orders.poll());</code>", question: "What is **B**?" }
                     ]
                 },
-                // Category 4: 13. Maps as Lookup Tables
+                // Category 4: Maps as Lookup Tables
                 {
-                    category: "L13: Maps",
+                    category: "Maps",
                     questions: [
                         { points: 100, answer: "The collection structure that stores information as **key-value pairs**.", question: "What is a **Map**?" },
                         { points: 200, answer: "The required time for retrieving a value by key in a `HashMap`.", question: "What is **O(1) average**?" },
@@ -343,9 +343,9 @@
                         { points: 900, answer: "The final output: <br><code class='code-snippet'>HashMap<String, String> data = new HashMap<>();<br>data.put('A', 'X');<br>data.put('A', 'Y');<br>System.out.println(data.get('A'));</code>", question: "What is **Y**?" }
                     ]
                 },
-                // Category 5: 14. Binary Search: Efficient Searching
+                // Category 5: Binary Search: Efficient Searching
                 {
-                    category: "L14: Binary Search",
+                    category: "Binary Search",
                     questions: [
                         { points: 100, answer: "The **critical prerequisite** for using binary search.", question: "What is the **array/list must be sorted**?" },
                         { points: 200, answer: "The search algorithm that is $O(n)$.", question: "What is **Linear Search**?" },
@@ -358,9 +358,9 @@
                         { points: 900, answer: "The value of `middle` in a binary search on an array of length 11, with `left = 0` and `right = 10`.", question: "What is **5**?" }
                     ]
                 },
-                // Category 6: 15. Exception Handling & Recovery
+                // Category 6: Exception Handling & Recovery
                 {
-                    category: "L15: Exceptions",
+                    category: "Exceptions",
                     questions: [
                         { points: 100, answer: "The keyword used to wrap code that might throw an exception.", question: "What is **`try`**?" },
                         { points: 200, answer: "The block of code that **always** executes, useful for closing files.", question: "What is **`finally`**?" },
@@ -373,9 +373,9 @@
                         { points: 900, answer: "The final output: <br><code class='code-snippet'>try {<br>  // No exception thrown<br>} finally {<br>  System.out.println('Cleaned');<br>}</code>", question: "What is **Cleaned**?" }
                     ]
                 },
-                // Category 7: 16. File Input/Output Operations
+                // Category 7: File Input/Output Operations
                 {
-                    category: "L16: File I/O",
+                    category: "File I/O",
                     questions: [
                         { points: 100, answer: "The core class that represents a file or directory path.", question: "What is the **`File`** class?" },
                         { points: 200, answer: "The method that must be called on a file writer to ensure data is written to the disk.", question: "What is **`.close()`**?" },
@@ -388,9 +388,9 @@
                         { points: 900, answer: "The specific checked exception thrown if a file cannot be found.", question: "What is **`FileNotFoundException`**?" }
                     ]
                 },
-                // Category 8: 17. Recursion
+                // Category 8: Recursion
                 {
-                    category: "L17: Recursion",
+                    category: "Recursion",
                     questions: [
                         { points: 100, answer: "The condition that stops the chain of recursive calls.", question: "What is the **base case**?" },
                         { points: 200, answer: "The two parts required for every recursive method.", question: "What are the **base case** and the **recursive case**?" },
@@ -403,9 +403,9 @@
                         { points: 900, answer: "The final output of the Fibonacci recursive function when given input 3.", question: "What is **2**?" }
                     ]
                 },
-                // Category 9: Testing with JUnit (Split from L17)
+                // Category 9: Testing with JUnit
                 {
-                    category: "L17: JUnit Testing",
+                    category: "JUnit Testing",
                     questions: [
                         { points: 100, answer: "The automated testing framework used in Java.", question: "What is **JUnit 5**?" },
                         { points: 200, answer: "The annotation that marks a method as an official test method.", question: "What is **`@Test`**?" },
@@ -418,9 +418,9 @@
                         { points: 900, answer: "The final output: <br><code class='code-snippet'>@Test public void test() {<br>  assertFalse(5 < 0);<br>}</code>", question: "What is **(the test) passes**?" }
                     ]
                 },
-                // Category 10: Integration Trail Mix
+                // Category 10: Trail Mix
                 {
-                    category: "10. Integration Trail Mix",
+                    category: "Trail Mix",
                     questions: [
                         { points: 100, answer: "The data structure that efficiently removes duplicates from an `ArrayList`.", question: "What is **HashSet**?" },
                         { points: 200, answer: "The three holistic concepts assessed in the final exam's **Programming Challenge** section.", question: "What are **reading files into collections**, **handling exceptions**, and **writing recursive algorithms**?" },

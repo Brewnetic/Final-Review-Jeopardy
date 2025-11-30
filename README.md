@@ -1,4 +1,4 @@
-# CS 122: [Final Exam Review Jeopardy Game](Final-Review-Jeopardy.html)
+# CS 122: [Final Exam Review Jeopardy Game](https://brewnetic.github.io/Final-Review-Jeopardy/)
 
 Hello everyone,
 
